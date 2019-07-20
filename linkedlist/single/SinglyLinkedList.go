@@ -15,7 +15,7 @@ type Node struct {
 
 type Person struct {
 	Name string
-	Age int
+	Age  int
 }
 
 func main() {
@@ -25,20 +25,20 @@ func main() {
 	}
 
 	p := Person{
-		Name: "edi supono",
-		Age: 18,
+		Name: "A",
+		Age:  18,
 	}
 	q := Person{
-		Name: "cipluk",
-		Age:19,
+		Name: "B",
+		Age:  19,
 	}
 	r := Person{
-		Name: "Palui",
-		Age: 24,
+		Name: "C",
+		Age:  24,
 	}
 	s := Person{
-		Name: "Fulan",
-		Age:28,
+		Name: "D",
+		Age:  28,
 	}
 	add(p, &list)
 	add(q, &list)
@@ -52,13 +52,13 @@ func main() {
 	PrintList(&list)
 	fmt.Println("\nsize:", list.Size)
 
-	 found := findByName("cipluk", &list)
+	found := findByName("B", &list)
 
-	 if(found != nil){
-		 fmt.Println("person found:", *found)
-	 }else{
-		 fmt.Println("person notfound:")
-	 }
+	if found != nil {
+		fmt.Println("person found:", *found)
+	} else {
+		fmt.Println("person notfound:")
+	}
 
 }
 func add(person Person, list *SinglyLinkedList) {
@@ -70,25 +70,25 @@ func add(person Person, list *SinglyLinkedList) {
 	list.Size++
 }
 
-func removeFromFront(list * SinglyLinkedList){
+func removeFromFront(list *SinglyLinkedList) {
 	current := list.head
 	list.head = current.next
 	current.next = nil
 	list.Size--
 }
 
-func findByName(name string, list *SinglyLinkedList) *Person{
+func findByName(name string, list *SinglyLinkedList) *Person {
 	current := list.head
 	if current == nil {
 		return nil
 	}
 
-	if current.Person.Name == name{
+	if current.Person.Name == name {
 		return &current.Person
 	}
 	for current.next != nil {
 		current = current.next
-		if current.Person.Name == name{
+		if current.Person.Name == name {
 			return &current.Person
 		}
 	}
@@ -96,12 +96,12 @@ func findByName(name string, list *SinglyLinkedList) *Person{
 	return nil
 }
 
-func PrintList(list *SinglyLinkedList) error {
+func PrintList(list *SinglyLinkedList) {
 	current := list.head
 
 	if current == nil {
 		fmt.Println("emtpy")
-		return nil
+		return
 	}
 
 	fmt.Print("node:", current.Person, "->")
@@ -110,6 +110,4 @@ func PrintList(list *SinglyLinkedList) error {
 		fmt.Print("node:", current.Person, "->")
 	}
 	fmt.Print("nil")
-
-	return nil
 }
