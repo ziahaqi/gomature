@@ -1,4 +1,4 @@
-package gomature
+package main
 
 import (
 	"fmt"
