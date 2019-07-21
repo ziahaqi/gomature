@@ -1,1 +1,1 @@
-sample implementation algorithm data structure in go
+GoMature is sample implementation  of commons algorithms & data structures in Go languange
